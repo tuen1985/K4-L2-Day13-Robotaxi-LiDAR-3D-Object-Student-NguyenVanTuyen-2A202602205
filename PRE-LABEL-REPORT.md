@@ -4,12 +4,12 @@ Giữ bản đã điền ngoài Git, trong thư mục nhóm private do LC thu. �
 
 ## Nhóm và provenance
 
-- Mã nhóm/phòng: Nhom_NguyenVanTuyen_2A202602205
-- Thành viên: xem `TEAMMATES.md` (Họ tên: Nguyễn Văn Tuyển / MSSV: 2A202602205; Vai trò lượt A: Vận hành lệnh, lượt B: Kiểm JSON/Cấu hình, lượt C: Xem hình học / Báo cáo).
-- Trạng thái: `executed-by-group` / `provided-results` (Đã thực thi và phân tích đầy đủ kết quả pipeline).
+- Mã nhóm/phòng: CaNhan_NguyenVanTuyen_2A202602205 (Thực hiện cá nhân)
+- Thành viên: xem `TEAMMATES.md` (Họ tên: Nguyễn Văn Tuyển / MSSV: 2A202602205; Vai trò lượt A/B/C: Vận hành lệnh, kiểm tra cấu hình JSON & phân tích hình học báo cáo cá nhân).
+- Trạng thái: `executed-by-group` / `provided-results` (Đã thực thi cá nhân và phân tích đầy đủ kết quả pipeline).
 - Người thực sự chạy; ngày/giờ; hệ máy/architecture: Nguyễn Văn Tuyển; 2026-10-02; Windows 11 x86_64 / Docker Linux CPU.
 - Image tag và image ID; phiên bản repo: Image Tag: `day13-pointpillars:lab` (Image ID: `sha256:a6f87d...` PointPillars KITTI pretrained CPU image); Repo Revision: `c4b27f...`.
-- PCD được cấp / frame_id; nơi được phép chạy; fingerprint nếu LC cấp: `input/demo.pcd` (Mẫu KITTI 000008 adaptation, 11,496 points binary PCD); Chạy tại local workspace của nhóm.
+- PCD được cấp / frame_id; nơi được phép chạy; fingerprint nếu LC cấp: `input/demo.pcd` (Mẫu KITTI 000008 adaptation, 11,496 points binary PCD); Chạy tại local workspace cá nhân.
 - Checkpoint: PointPillars KITTI pretrained `epoch_160.pth` (có sẵn trong image).
 - Phạm vi: front-window (camera ROI phía trước); score threshold: 0.30.
 - Giả định kênh thứ tư/intensity và nguồn z_ground: Reflectance bị bỏ trong PCD thực hành (kênh RGB=0 uint32 placeholder); `z_ground` ước lượng từ điểm mặt đất cục bộ (-0.08 m).
@@ -42,7 +42,7 @@ Ghi rõ helper tạo biến đổi có chủ đích từ prediction, không ph�
 ## Nhận xét cá nhân
 
 ### Member: Nguyễn Văn Tuyển (MSSV: 2A202602205)
-- **Vai trò đã làm**: Vận hành script, đối chiếu JSON/Side plot A/B/C, kiểm tra các ca QC lỗi height offset và viết tổng hợp báo cáo.
+- **Vai trò đã làm**: Vận hành script cá nhân, đối chiếu JSON/Side plot A/B/C, kiểm tra các ca QC lỗi height offset và viết tổng hợp báo cáo.
 - **Quan sát A/B/C**:
   - So sánh A vs B (đổi `delta` từ 0m -> 1.73m): Số hộp tăng từ 6 lên 8, `mean_z` giảm từ 0.85m xuống 0.42m. Khi đưa input đúng z-offset vào feature extractor, model nhận diện được thêm 2 đối tượng thưa ở xa.
   - So sánh B vs C (đổi `voxel_size` từ 0.16m -> 0.32m): Số hộp giảm từ 8 xuống 5 do lưới pillar thô hơn làm tiêu biến cụm điểm thưa.
@@ -71,4 +71,4 @@ Ghi rõ helper tạo biến đổi có chủ đích từ prediction, không ph�
 - Có chạy thật / chỉ phân tích; còn cần lượt thực hành bổ sung: Đã thực thi và phân tích đầy đủ output A/B/C và ca QC.
 - Output đủ, giữ bản gốc, không đưa ca lỗi vào CVAT: Đã tuân thủ lưu bản gốc private, không import prediction KITTI/QC vào CVAT.
 - Nhận xét từng thành viên và quyết định dừng pipeline: Đã hiểu và áp dụng đúng quy tắc dừng batch khi gặp lỗi z hệ thống.
-- Đồng ý chuyển sang chỉnh/QC / cần bổ sung; lý do: Đã hoàn thành phần PointPillars nhóm và 15 job CVAT cá nhân, đủ điều kiện nghiệm thu.
+- Đồng ý chuyển sang chỉnh/QC / cần bổ sung; lý do: Đã hoàn thành phần PointPillars cá nhân và 15 job CVAT cá nhân, đủ điều kiện nghiệm thu.
